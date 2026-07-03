@@ -6,11 +6,12 @@ int main() {
     const int step = 20;
     
     printf("fahr\tcelc\n");
-    int fahr = low;
-    while (fahr <= high) {
-        int celc = 5* (fahr-32)/9;
-        printf("%d\t%d\n", fahr, celc);
-        fahr += step;
+
+    // init*, condition, loop, increment, repeat
+    for (int fahr = low; fahr <= high; fahr += step) {
+        float celc = (5.0/9.0) * (fahr-32);
+        printf("%4d %6.1f\n", fahr, celc);
     }
+
     return 0;
 }
