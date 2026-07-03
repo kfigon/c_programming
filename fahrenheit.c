@@ -1,16 +1,16 @@
 #include <stdio.h>
 
+#define LOW 0
+#define HIGH 300
+#define STEP 20
 int main() {
-    const int low = 0;
-    const int high = 300;
-    const int step = 20;
     
     printf("fahr\tcelc\n");
 
     // init*, condition, loop, increment, repeat
 
-    for (int fahr = low; fahr <= high; fahr += step) {
-    // for (int fahr = high; fahr >= low; fahr -= step) {
+    for (int fahr = LOW; fahr <= HIGH; fahr += STEP) {
+    // for (int fahr = HIGH; fahr >= LOW; fahr -= STEP) {
         float celc = (5.0/9.0) * (fahr-32);
         printf("%4d %6.1f\n", fahr, celc);
     }
