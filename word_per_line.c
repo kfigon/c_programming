@@ -15,8 +15,6 @@ int main() {
                 in_word = 0;
                 putchar('\n');
             }
-        } else if (in_word){
-            putchar(c);
         } else {
             in_word = 1;
             putchar(c);
