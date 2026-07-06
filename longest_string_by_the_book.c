@@ -39,6 +39,7 @@ int get_line(char out[]){
     int len = 0;
     int c;
     while ((c = getchar()) != EOF && c != '\n' && len < MAX_LINE - 1) {
+        // subtle bug - if we exceed MAX_LINE, next read will get the rest of the stream
         out[len] = c;
         len++;
     }
