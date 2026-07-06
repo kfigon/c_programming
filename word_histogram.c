@@ -1,6 +1,14 @@
 #include <stdio.h>
 
 #define LIMIT 30
+
+void register_word(int word_lengths[], int current_word_len, int* longest_word){
+    if (current_word_len > 0 && current_word_len < LIMIT) {
+        word_lengths[current_word_len]++;
+        *longest_word = (current_word_len > *longest_word) ? current_word_len : *longest_word;
+    }
+}
+
 int main() {
     int c;
     int word_lengths[LIMIT];
@@ -25,10 +33,7 @@ int main() {
                 continue;
             }
 
-            if (current_word_len > 0 && current_word_len < LIMIT) {
-                word_lengths[current_word_len]++;
-                longest_word = (current_word_len > longest_word) ? current_word_len : longest_word;
-            }
+            register_word(word_lengths, current_word_len, &longest_word);
 
             current_word_len = 0;
             in_word = 0;
@@ -39,11 +44,9 @@ int main() {
             }
         }
     }
+
     if(in_word){
-        if (current_word_len > 0 && current_word_len < LIMIT) {
-            word_lengths[current_word_len]++;
-            longest_word = (current_word_len > longest_word) ? current_word_len : longest_word;
-        }
+        register_word(word_lengths, current_word_len, &longest_word);
     }
     
     printf("\nlen | cnt\n");
