@@ -39,8 +39,14 @@ int main() {
             }
         }
     }
+    if(in_word){
+        if (current_word_len > 0 && current_word_len < LIMIT) {
+            word_lengths[current_word_len]++;
+            longest_word = (current_word_len > longest_word) ? current_word_len : longest_word;
+        }
+    }
     
-    printf("len | cnt\n");
+    printf("\nlen | cnt\n");
     for (int i = 1; i <= longest_word; i++){
         printf("%3d |", i);
         for (int j = 0; j < word_lengths[i]; j++) printf("*");
