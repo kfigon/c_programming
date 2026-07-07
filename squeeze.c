@@ -8,10 +8,9 @@ int string_len(char s[]){
 }
 
 void squeeze(char s1[], char s2[]) {
-    int x;
     for (int j = 0; s2[j] != 0; j++) {
         int c = s2[j];
-        x = 0;
+        int x = 0;
         for(int i = 0; s1[i] != 0; i++){
             if (s1[i] != c){
                 s1[x] = s1[i];
